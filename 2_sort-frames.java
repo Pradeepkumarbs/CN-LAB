@@ -1,5 +1,5 @@
 //PART A
-/*Write a program to sort frames using appropriate sorting techniques*/
+/*2 Write a program to sort frames using appropriate sorting techniques*/
 
 import java.util.*;
 
