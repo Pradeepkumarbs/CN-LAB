@@ -55,7 +55,36 @@ public static void printSolution(int[] dist) {
 }
 
 
-/*output:-
+//output:-
+/*Enter the number of Vertices : 3
+Enter the number of Vertices : 4
+Enter the Weight Matrix of Graph
+0 1 2 3
+3 2 1 0
+2 1 3 0
+1 0 2 3
+Enter the Source Vertex : 1
+Vertex 	 Distance from Source
+1		0
+2		1
+3		2
+4		3
+*/
+
+
+/*
+Enter the number of Vertices : 3
+Enter the Weight Matrix of Graph
+0 -1 2
+-1 2 0
+2 -1 0
+Enter the Source Vertex : 1
+Negative weight cycle detected.
+*/
+
+
+
+/*
 Enter the number of Vertices : 5
 Enter the Weight Matrix of Graph
 0 6 0 7 0
@@ -70,28 +99,4 @@ Vertex   Distance from Source
 3               4
 4               7
 5               2
-*/
-
-
-/*Enter the number of Vertices : 3
-Enter the Weight Matrix of Graph
-0 10 5
-0 0 -8
-0 0 0
-Enter the Source Vertex : 1
-Vertex   Distance from Source
-1               0
-2               10
-3               2
-*/
-
-
-/*
-Enter the number of Vertices : 3
-Enter the Weight Matrix of Graph
-0 10 0
-0 0 20
-0 -30 0
-Enter the Source Vertex : 1
-Negative weight cycle detected.
 */
