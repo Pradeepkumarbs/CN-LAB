@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Sort {
     public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
         List<int[]> frame = new ArrayList<>();
         System.out.println("Enter no. of frames : ");
-        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
