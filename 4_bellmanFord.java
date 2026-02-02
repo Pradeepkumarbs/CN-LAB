@@ -1,4 +1,4 @@
-/*3 Write a program to find the shortest path between vertices using bellman-ford algorithm.*/
+/*4 Write a program to find the shortest path between vertices using bellman-ford algorithm.*/
 
 //bellman ford algorithm for shortest distance from a source node to all the remaining nodes
 
