@@ -33,7 +33,6 @@ class Lab7RSA{
                 RSAalgorithm rsa = new RSAalgorithm();
                 rsa.getkeys(128);
                 //rsa.getkeys(512);
-                rsa.displaykeys();
                 
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Enter the message to be encrypted: ");
