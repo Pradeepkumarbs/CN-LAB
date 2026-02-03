@@ -7,64 +7,81 @@ and token bucket algorithm.*/
 import java.util.Scanner;
 
 public class LeakyBucket {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter bucket capacity: ");
-        int bucketCapacity = scanner.nextInt();
-        System.out.print("Enter output rate (packets per second): ");
-        int outputRate = scanner.nextInt();
-        System.out.print("Enter the number of packets: ");
-        int numPackets = scanner.nextInt();
-        int[] packetSizes = new int[numPackets];
-        System.out.println("Enter the packet sizes: ");
-        for (int i = 0; i < numPackets; i++) {
-            packetSizes[i] = scanner.nextInt();
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int bucket_remaining = 0, sent, received;
+        
+        System.out.println("Enter the bucket capacity");
+        int bucket_capacity = sc.nextInt();
+        System.out.println("Enter the bucket rate (Rate at which the bucket sends the packets)");
+        int bucket_rate = sc.nextInt();
+        System.out.println("Enter the number of packets to be sent");
+        int n = sc.nextInt();
+        int[] buf = new int[30]; // buffer array to store the packets
+        System.out.println("Enter the packets sizes one by one");
+        for (int i = 0; i < n; i++) {
+            buf[i] = sc.nextInt();
         }
 
-        int currentBucketSize = 0;
+        System.out.println(String.format("%s\t\t%s\t\t%s\t%s\t%s","Time_t","P_size","accepted","sent","remaining"));
 
-        System.out.println("\nPacket Size\tBucket Size\tSent\tRemaining\tStatus");
-        for (int packetSize : packetSizes) {
-            if (currentBucketSize + packetSize <= bucketCapacity) {
-                currentBucketSize += packetSize;
-                System.out.println(packetSize + "\t\t" + currentBucketSize + "\t\t"+Math.min(outputRate,currentBucketSize)+"\t\t"+Math.max(0, currentBucketSize - outputRate)+"\t\tAccepted");
+        for (int i = 0; i < n; i++) {
+            if (buf[i] != 0) {
+                if (bucket_remaining + buf[i] > bucket_capacity) {
+                    received = -1;
+                } else {
+                    received = buf[i];
+                    bucket_remaining += buf[i];
+                }
             } else {
-                System.out.println(packetSize + "\t\t" + currentBucketSize+"\t\t"+Math.min(outputRate,currentBucketSize)+"\t\t"+Math.max(0, currentBucketSize - outputRate)+"\t\tDropped");
+                received = 0;
             }
-            currentBucketSize = Math.max(0, currentBucketSize - outputRate);
+
+            if (bucket_remaining != 0) {
+                if (bucket_remaining < bucket_rate) {
+                    sent = bucket_remaining;
+                    bucket_remaining = 0;
+                } else {
+                    sent = bucket_rate;
+                    bucket_remaining = bucket_remaining - bucket_rate;
+                }
+            } else {
+                sent = 0;
+            }
+
+            if (received == -1) { 
+                System.out.println(String.format("%d\t\t%d\t\t%s\t\t%d\t\t%d", i + 1, buf[i], "dropped", sent, bucket_remaining));
+            } else {
+                System.out.println(String.format("%d\t\t%d\t\t%d\t\t%d\t\t%d", i + 1, buf[i], received, sent, bucket_remaining));
+            }
         }
-        scanner.close();
     }
 }
 
-/* OUTPUT 
-Enter bucket capacity: 5
-Enter output rate (packets per second): 3
-Enter the number of packets: 2
-Enter the packet sizes: 
-2
-4
 
-Packet Size	Bucket Size	Sent	Remaining	Status
-2		2		2		0		Accepted
-4		4		3		1		Accepted
 
-[OR]
-
-Enter bucket capacity: 6
-Enter output rate (packets per second): 2
-Enter the number of packets: 4
-Enter the packet sizes: 
+/*output:-
+Enter the bucket capacity
+6
+Enter the bucket rate (Rate at which the bucket sends the packets)
+3
+Enter the number of packets to be sent
+7
+Enter the packets sizes one by one
 2
 4
 6
-7
-
-Packet Size	Bucket Size	Sent	Remaining	Status
-2		2		2		0		Accepted
-4		4		2		2		Accepted
-6		2		2		0		Dropped
-7		0		0		0		Dropped
+8
+2
+1
+3
+Time_t	P_size	accepted	sent	remaining
+1		2		2			2		0
+2		4		4			3		1
+3		6		dropped		1		0
+4		8		dropped		0		0
+5		2		2			2		0
+6		1		1			1		0
+7		3		3			3		0
 
 */
