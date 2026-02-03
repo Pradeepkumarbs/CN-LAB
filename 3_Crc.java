@@ -91,4 +91,17 @@ At Receiver Side:
 Enter checksum code: 101010
 Enter generator: 1101
 Data stream is invalid. CRC error occurred.
+
+
+[OR]
+
+At Sender Side: 
+Enter message bits: 101010
+Enter generator: 1101
+The checksum code is: 101010011
+At Receiver Side: 
+Enter checksum code: 101010011
+Enter generator: 1101
+Data stream is valid
+
 */
