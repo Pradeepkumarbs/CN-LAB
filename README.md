@@ -4,9 +4,9 @@
 <body>
 
   <h1>Computer Networks Laboratory</h1>
-  <h2>Course Code: 20CS58L</h2>
+  <h2>Course Code: 22CS58L</h2>
 
-  <h3>Part-A: Programming Assignments</h3>
+  <h3>Part-A: Programming </h3>
 
   <h4>1. System Information</h4>
   <p>Implement the following using C++/Java/Python:</p>
@@ -42,17 +42,16 @@
   <h3>Part-B: Simulation Experiments</h3>
 
   <h4>10. Point-to-Point Network</h4>
-  <p>a. Implement three nodes point-to-point network with duplex links between them. Set the queue size, vary the bandwidth and find the number of packets dropped.</p>
-  <p>b. Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion.</p>
+  <p> Implement three nodes point-to-point network with duplex links between them. Set the queue size, vary the bandwidth and find the number of packets dropped.</p>
+  
+  <h4>11. ping messages/trace route over a network topology of 6 nodes</h4>
+  <p> Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion.</p>
 
-  <h4>11. Ethernet LAN</h4>
-  <p>a. Implement an Ethernet LAN using n nodes and set multiple traffic nodes and plot congestion window for different source/destination.</p>
-  <p>b. Implement simple ESS and with transmitting nodes in a wireless LAN by simulation and determine the performance with respect to the transmission of packets.</p>
-
-  <h4>12. GSM and CDMA</h4>
-  <p>a. Implement and study the performance of GSM on NS2/NS3 (Using MAC layer) or equivalent environment.</p>
-  <p>b. Implement and study the performance of CDMA on NS2/NS3 (Using stack called Call net) or equivalent environment.</p>
-
+  <h4>12. Ethernet LAN</h4>
+  <p> Implement an Ethernet LAN using n nodes and set multiple traffic nodes and plot congestion window for different source/destination.</p>
+  
+  <h4>13.  ESS and with transmitting nodes in wire-less LAN</h4>
+  <p> Implement simple ESS and with transmitting nodes in a wireless LAN by simulation and determine the performance with respect to the transmission of packets.</p>
 
 </body>
 
