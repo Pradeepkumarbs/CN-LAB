@@ -31,8 +31,10 @@ class RSAalgorithm{
 class Lab7RSA{
         public static void main(String[] args){
                 RSAalgorithm rsa = new RSAalgorithm();
-                rsa.getkeys(512);
-                //rsa.displaykeys();
+                rsa.getkeys(128);
+                //rsa.getkeys(512);
+                rsa.displaykeys();
+                
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Enter the message to be encrypted: ");
                 BigInteger m = new BigInteger(sc.next().getBytes());
